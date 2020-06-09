@@ -82,6 +82,12 @@ class LunrVolume(LunrAPI):
         return self.http_post('/volumes/%s' % volume_id,
                               params={'status': status})
 
+    def update_vol_node_id(self, volume_id, node_id):
+        """
+        update node_id of a volume
+        """
+        return self.http_put('/volumes/%s' % volume_id,
+                              params={'node_id': node_id})
 
 class LunrBackup(LunrAPI):
 
