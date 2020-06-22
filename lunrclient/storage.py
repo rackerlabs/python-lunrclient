@@ -105,6 +105,12 @@ class StorageVolume(StorageAPI):
         """
         return self.http_get('/volumes/%s/lock' % volume_id)
 
+    def rename(self, volume_id, new_volume_id):
+        """
+       Renames lunr volume
+        """
+        return self.http_put('/volumes/%s/rename' % volume_id,
+                             params=self.unused({'new_name': new_volume_id}))
 
 class StorageBackup(StorageAPI):
 
